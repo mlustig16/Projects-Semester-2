@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+  	<link rel="stylesheet" type="text/css" href="Sem2Project.css">
+  	<script type="text/javascript" src="Sem2Project.js"></script>
+
+  	<!--pie chart -->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load("current", {packages:["corechart"]});
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Category', 'Dollars'],
+          ['Entertainment', 75],
+          ['Food', 200],
+          ['Bills', 400],
+          ['Miscellaneous', 75],
+          ['Transportation', 50]
+        ]);
+
+        var options = {
+          title: 'Expenses',
+          pieHole: 0.35,
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
+        chart.draw(data, options);
+      	}
+    </script>
+
+    <!--bootstrap -->
+    <!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+	<!-- Latest compiled JavaScript -->
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!--sliding sidebar -->
+	<link href="css/slider.css" rel="stylesheet">
+	<!-- Include css file here-->
+	<link href='http://fonts.googleapis.com/css?family=Roboto+Slab' rel='stylesheet' type='text/css'><!-- Including google font-->
+	<script src="js/slider.js"></script>
+
+  </head>
+
+  <body>
+    <div id="donutchart" style="width: 900px; height: 500px;"></div>
+
+    <div class="container">
+    	<div class="jumbotron">
+    		<p>BIGGER TEXT</p>
+    	</div>
+    	<p>littler text</p>
+    </div>
+
+    <!--sliding sidebar -->
+    <div id="title">
+		<h3>Where do you want to go?</h3>
+	</div>
+	<!-- Sliding div starts here -->
+	<div id="slider" style="right:-342px;">
+		<div id="sidebar" onclick="open_panel()"></div>
+		<div id="header">
+			<button>Go to personal finances</button>
+			<button>Get advice</button>
+		</div>
+	</div>
+	<!-- Sliding div ends here -->
+
+  </body>
+</html>
