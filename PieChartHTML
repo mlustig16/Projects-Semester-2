@@ -5,7 +5,7 @@
   	<link rel="stylesheet" type="text/css" href="Sem2Project.css">
   	<script type="text/javascript" src="Sem2Project.js"></script>
 
-  	<!--pie chart -->
+  	<!--expense chart -->
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
       google.charts.load("current", {packages:["corechart"]});
@@ -25,8 +25,28 @@
           pieHole: 0.35,
         };
 
-        var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
-        chart.draw(data, options);
+        var expenseChart = new google.visualization.PieChart(document.getElementById('expenseChart'));
+        expenseChart.draw(data, options);
+      	}
+    </script>
+
+    <!--bank account chart -->
+    <script type="text/javascript">
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Category', 'Dollars'],
+          ['Savings', 5000],
+          ['Checking', 750],
+        ]);
+
+        var options = {
+          title: 'My Account',
+          pieHole: 0.35,
+        };
+
+        var accountChart = new google.visualization.PieChart(document.getElementById('accountChart'));
+        accountChart.draw(data, options);
       	}
     </script>
 
@@ -48,7 +68,9 @@
   </head>
 
   <body>
-    <div id="donutchart" style="width: 900px; height: 500px;"></div>
+  	<!--charts-->
+    <<div id="expenseChart" style="width: 900px; height: 500px;"></div>
+    <div id="accountChart" style="width: 900px; height: 500px;"></div>
 
     <div class="container">
     	<div class="jumbotron">
@@ -71,6 +93,7 @@
 	</div>
 	<!-- Sliding div ends here -->
 
+	<!--expnse input-->
 	<form method="post">
 		Type of Expense
 		<select name="expenseType">
@@ -81,10 +104,11 @@
 			<option value="Miscellaneous">Miscellaneous</option>
 		</select>
 
-		Expense Amount: <input type="number" name="expenseAmount">
+		Expense Amount: <input type="number" step="any" name="expenseAmount">
 		<input type="submit" name="expenseSubmit" value="Submit" class="submitButton">
 	</form>
 
+	<!--income input-->
 	<form method="post">
 		Income Destination
 		<select name="incomeDestination">
