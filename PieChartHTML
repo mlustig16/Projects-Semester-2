@@ -16,8 +16,8 @@
           ['Entertainment', 75],
           ['Food', 200],
           ['Bills', 400],
-          ['Miscellaneous', 75],
-          ['Transportation', 50]
+          ['Transportation', 50],
+          ['Miscellaneous', 75]
         ]);
 
         var options = {
@@ -52,9 +52,9 @@
 
     <div class="container">
     	<div class="jumbotron">
-    		<p>BIGGER TEXT</p>
+    		<p>Young Money</p>
     	</div>
-    	<p>littler text</p>
+    	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
     </div>
 
     <!--sliding sidebar -->
@@ -70,6 +70,33 @@
 		</div>
 	</div>
 	<!-- Sliding div ends here -->
+
+	<form method="post">
+		Type of Expense
+		<select name="expenseType">
+			<option value="Entertainment">Entertainment</option>
+			<option value="Food">Food</option>
+			<option value="Bills">Bills</option>
+			<option value="Transportaion">Transportation</option>
+			<option value="Miscellaneous">Miscellaneous</option>
+		</select>
+
+		Expense Amount: <input type="number" name="expenseAmount">
+		<input type="submit" name="expenseSubmit" value="Submit" class="submitButton">
+	</form>
+
+	<form method="post">
+		Income Destination
+		<select name="incomeDestination">
+			<option value="Checking">Checking</option>
+			<option value="Savings">Savings</option>
+		</select>
+
+		Income Amount: <input type="number" name="incomeAmount">
+		<input type="submit" name="incomeSubmit" value="Submit" class="submitButton">
+	</form>
+
+
 
   </body>
 </html>
