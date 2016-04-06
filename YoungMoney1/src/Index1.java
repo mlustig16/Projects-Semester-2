@@ -1,3 +1,4 @@
+package finance;
 import java.io.IOException;
 
 import javax.servlet.ServletException;
@@ -5,6 +6,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import finance.AccountInfo;
+import finance.appStorage.IStorage;
+import finance.appStorage.LocalDiskStorage;
 
 
 /**
@@ -15,11 +20,16 @@ import javax.servlet.http.HttpServletResponse;
 public class Index1 extends HttpServlet{	
 	
 	private static final long serialVersionUID = 1L;
+	
+	private static IStorage<AccountInfo> appStorage = 
+			new LocalDiskStorage<AccountInfo>();
 
 	private HtmlUtil1 htmlUtil;
 	
 	public Index1(){
 		super();
+		appStorage.onStartup();
+		htmlUtil = new HtmlUtil1(appStorage);
 	}
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String responseHtml = "";

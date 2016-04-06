@@ -1,18 +1,27 @@
+package finance;
 import java.util.ArrayList;
 import java.util.List;
 
+import finance.AccountInfo;
+import finance.appStorage.IStorage;
+
 public class HtmlUtil1 {
 	// Put your CSS URL here
-		private static final String CUSTOM_CSS_URL = "style"
-				+ ""
-				+ ""
-				+ ".css";
-		//private static final String CUSTOM_JS_URL = "collegeapplication.js";
+		private static final String CUSTOM_CSS_URL = "style.css";
+		private static final String CUSTOM_JS_URL = "collegeapplication.js";
 		
 		/**
 		 * Renders out the HTML head. 
 		 * @return the <head> element of the page
 		 */
+		
+		private IStorage<AccountInfo> appStorage;
+		
+		public HtmlUtil1(IStorage<AccountInfo> appStorage) {
+			this.appStorage = appStorage;
+		}
+		
+		
 		public String buildHtmlHead() {
 			return "<head>"
 				+ 	 "<title>Young Money</title>"
